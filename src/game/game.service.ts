@@ -7,15 +7,15 @@ import { GameModel } from './game.model';
 export class GameService {
   private data = initialData
 
-  async create(data: CreateGameDto): Promise<GameModel> {
-    return await GameModel.query().insert(data)
+  async create(data: CreateGameDto): Promise<GetGameDto> {
+    return await GameModel.query().insert(data).castTo()
   }
 
-  async findAll(): Promise<GameModel[]> {
-    return await GameModel.query()
+  async findAll(): Promise<GetGameDto[]> {
+    return await GameModel.query().castTo()
   }
 
-  // async update(id: string, data: CreateGameDto): Promise<GetGameDto> {
-  //   
-  // }
+  async update(id: string, data: CreateGameDto): Promise<GetGameDto> {
+    return await GameModel.query().patchAndFetchById(id, data).castTo()
+  }
 }

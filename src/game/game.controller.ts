@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { GameService } from './game.service';
 import { CreateGameDto } from './dto/game.dto';
 
@@ -14,5 +14,10 @@ export class GameController {
   @Post()
   async create(@Body() data: CreateGameDto) {
     return await this.gameService.create(data);
+  }
+
+  @Patch(':id')
+  async patch(@Param('id') id: string, @Body() data: CreateGameDto) {
+    return await this.gameService.update(id, data);
   }
 }

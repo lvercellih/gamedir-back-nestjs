@@ -9,6 +9,16 @@ POST {{server}}/games HTTP/1.1
 content-type: application/json
 
 {
-    "title": "Borderlands 3",
+    "title": "Borderlands 4",
     "description": "FPS"
 }
+
+###
+PATCH {{server}}/games/3692d80eb9d7 HTTP/1.1
+content-type: application/json
+
+{
+    "description": "FPS 3",
+    "creation_dt": "test"
+}
+
