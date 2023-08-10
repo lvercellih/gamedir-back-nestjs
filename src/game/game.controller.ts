@@ -8,11 +8,11 @@ export class GameController {
 
   @Get()
   async all() {
-    return this.gameService.findAll();
+    return await this.gameService.findAll();
   }
 
   @Post()
   async create(@Body() data: CreateGameDto) {
-    return this.gameService.create(data);
+    return await this.gameService.create(data);
   }
 }

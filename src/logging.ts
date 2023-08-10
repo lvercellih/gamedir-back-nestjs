@@ -1,9 +1,7 @@
 import { LoggerModule } from "nestjs-pino";
 
-let lm;
-
-if (process.env.NODE_ENV === 'dev') {
-  lm = LoggerModule.forRoot({
+export const loggerModule = (
+  process.env.NODE_ENV === 'dev' ? LoggerModule.forRoot({
     pinoHttp: {
       transport: {
         target: 'pino-pretty',
@@ -12,9 +10,5 @@ if (process.env.NODE_ENV === 'dev') {
         }
       },
     }
-  })
-} else {
-  lm = LoggerModule.forRoot()
-}
-
-export const loggerModule = lm
+  }) : LoggerModule.forRoot()
+)

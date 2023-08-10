@@ -1,18 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { CreateGameDto, GetGameDto } from './dto/game.dto';
 import * as initialData from './initial_data.json'
+import { GameModel } from './game.model';
 
 @Injectable()
 export class GameService {
   private data = initialData
 
-  create(data: CreateGameDto): GetGameDto {
-    const obj = { id: new Date().toISOString(), ...data  }
-    this.data.push(obj)
-    return obj
+  async create(data: CreateGameDto): Promise<GameModel> {
+    return await GameModel.query().insert(data)
   }
 
-  findAll(): GetGameDto[] {
-    return this.data;
+  async findAll(): Promise<GameModel[]> {
+    return await GameModel.query()
   }
+
+  // async update(id: string, data: CreateGameDto): Promise<GetGameDto> {
+  //   
+  // }
 }

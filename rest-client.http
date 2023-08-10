@@ -1,0 +1,14 @@
+@server = http://localhost:3000
+
+###
+GET {{server}}/games HTTP/1.1
+content-type: application/json
+
+###
+POST {{server}}/games HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Borderlands 3",
+    "description": "FPS"
+}
