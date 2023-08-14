@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/src/main",
+  "type": "module",
   "scripts": {
     "build": "nest build",
     "start:dev": "nest start --watch",
-    "start:prod": "node ."
+    "start:prod": "node .",
+    "migrate:latest": "knex migrate:latest",
+    "migrate:rollback": "knex migrate:rollback",
+    "migrate:recreate": "knex migrate:rollback --all && knex migrate:latest"
   },
   "keywords": [],
   "author": "",

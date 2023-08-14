@@ -20,7 +20,7 @@ export function model(opts: {
 
     async $beforeInsert(queryContext: QueryContext): Promise<any> {
       await super.$beforeInsert(queryContext)
-      this[fo.idField] = genId(12)
+      this[fo.idField] = genId(12)  // El 12 y el formato lo pongo por puro gusto personal
       if (fo.autoCreationDt) {
         this[fo.creationDtField] = new Date()
       }

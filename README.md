@@ -6,7 +6,7 @@ Backend para un directorio de videojuegos
 
 - Node.js 18
 - NestJS 10
-- Objection 3 with knex 2.5.1
+- Objection 3 with knex 2
 
 ## Iniciar el proyecto localmente
 ```bash
